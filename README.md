@@ -1,6 +1,6 @@
 # My Project
 
-#Сайт по открытию кейсов CS 2.
+<b>Сайт по открытию кейсов CS2</b>
 
 •[Макет для верстки](https://www.figma.com/design/I09ShACbmokfAImbpXCszy/Open-Cases-CS-Standoff-Gambling-Standcases--Community-?node-id=0-1&p=f&t=BSWbTyPWyVfwuUzC-0)
 
@@ -25,6 +25,7 @@
 • смотреть свою историю открытий
 
 • смотреть историю выпадов
+
 
 
 
