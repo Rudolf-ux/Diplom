@@ -1,178 +1,119 @@
+/* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ===== BASE ===== */
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 100%);
+  font-family: Arial, sans-serif;
+  background: #020617;
   color: white;
+  line-height: 1.5;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ===== APP WRAPPER ===== */
 .app {
   min-height: 100vh;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
 }
 
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  width: 100%;
+}
+
+/* ===== HEADER ===== */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  background: rgba(25, 25, 40, 0.8);
+
+  padding: 16px 24px;
+  background: rgba(15, 23, 42, 0.9);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(100, 100, 150, 0.2);
+
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.logo {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #4ade80;
-  text-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
-}
-
+/* ===== NAV ===== */
 .nav {
-  display: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
-.nav-link {
-  color: #e2e8f0;
-  text-decoration: none;
-  font-weight: 500;
-  position: relative;
+.nav a {
+  opacity: 0.7;
+  transition: 0.2s;
 }
 
-.login-btn {
-  background: linear-gradient(45deg, #4ade80, #22c55e);
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(74, 222, 128, 0.3);
+.nav a:hover {
+  opacity: 1;
 }
 
-.cases {
-  padding: 2rem 0;
-}
-
-.cases h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  background: linear-gradient(90deg, #ffffff, #a0aec0);
-
-  -webkit-text-fill-color: transparent;
-}
-
+/* ===== GRID ===== */
 .case-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 20px;
 }
 
-.case-card {
-  background: rgba(30, 30, 50, 0.6);
-  padding: 1.2rem;
-  border-radius: 15px;
-  text-align: center;
-  border: 1px solid rgba(74, 222, 128, 0.2);
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
-}
-
-@media (hover: hover) {
-  .case-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    border-color: #4ade80;
-    box-shadow:
-      0 8px 20px rgba(74, 222, 128, 0.4),
-      0 0 20px rgba(74, 222, 128, 0.2);
-  }
-
-  .nav-link:hover {
-    color: #4ade80;
-  }
-
-  .nav-link::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #4ade80;
-    transition: width 0.3s ease;
-  }
-
-  .nav-link:hover::after {
-    width: 100%;
-  }
-
-  .login-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(74, 222, 128, 0.4);
-  }
-}
-
-@media (min-width: 640px) {
-  .app {
-    padding: 0 16px;
-  }
-
-  .cases {
-    padding: 2.5rem 0;
-  }
-
-  .cases h2 {
-    font-size: 2.2rem;
-  }
-
+/* tablet */
+@media (max-width: 1024px) {
   .case-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 1024px) {
-  .header {
-    padding: 1.2rem 2rem;
-  }
-
-  .logo {
-    font-size: 1.6rem;
-  }
-
-  .nav {
-    display: flex;
-    gap: 2rem;
-  }
-
-  .login-btn {
-    padding: 0.7rem 1.4rem;
-    font-size: 1rem;
-  }
-
-  .cases {
-    padding: 3rem 0;
-  }
-
-  .cases h2 {
-    font-size: 2.5rem;
-  }
-
+/* mobile */
+@media (max-width: 600px) {
   .case-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
   }
+}
 
-  .case-card {
-    padding: 2rem;
-  }
+/* ===== CASE CARD ===== */
+.case-card {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+
+  border-radius: 16px;
+  padding: 20px;
+
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.case-card:hover {
+  transform: translateY(-6px);
+  border-color: #4ade80;
+}
+
+/* ===== IMAGE (если есть в карточке) ===== */
+.case-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+/* ===== BUTTONS (если используешь) ===== */
+button {
+  cursor: pointer;
+  border: none;
 }

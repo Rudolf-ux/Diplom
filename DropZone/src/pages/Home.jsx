@@ -4,12 +4,12 @@ import Roulette from "../components/Roulette";
 
 export default function Home() {
   return (
-    <div className="bg-[#020617] min-h-screen text-white">
+    <div className="app">
       <Navbar />
       <Roulette />
 
-      <section className="p-6">
-        <h2 className="text-2xl mb-4">Popular Cases</h2>
+      <section className="cases">
+        <h2>Popular Cases</h2>
         <CaseGrid />
       </section>
     </div>
