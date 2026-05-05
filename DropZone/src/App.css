@@ -1,11 +1,11 @@
-/* ===== RESET ===== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===== BASE ===== */
+
 body {
   font-family: Arial, sans-serif;
   background: #020617;
@@ -18,14 +18,14 @@ a {
   text-decoration: none;
 }
 
-/* ===== APP WRAPPER ===== */
+
 .app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* ===== CONTAINER ===== */
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -33,7 +33,7 @@ a {
   width: 100%;
 }
 
-/* ===== HEADER ===== */
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -49,7 +49,7 @@ a {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* ===== NAV ===== */
+
 .nav {
   display: flex;
   gap: 20px;
@@ -65,7 +65,7 @@ a {
   opacity: 1;
 }
 
-/* ===== GRID ===== */
+
 .case-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -73,21 +73,21 @@ a {
   margin-top: 20px;
 }
 
-/* tablet */
+
 @media (max-width: 1024px) {
   .case-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* mobile */
+
 @media (max-width: 600px) {
   .case-grid {
     grid-template-columns: 1fr;
   }
 }
 
-/* ===== CASE CARD ===== */
+
 .case-card {
   background: rgba(30, 41, 59, 0.7);
   border: 1px solid rgba(74, 222, 128, 0.2);
@@ -104,7 +104,7 @@ a {
   border-color: #4ade80;
 }
 
-/* ===== IMAGE (если есть в карточке) ===== */
+
 .case-card img {
   width: 100%;
   border-radius: 12px;
@@ -112,7 +112,7 @@ a {
   object-fit: cover;
 }
 
-/* ===== BUTTONS (если используешь) ===== */
+
 button {
   cursor: pointer;
   border: none;
