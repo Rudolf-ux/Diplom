@@ -1,10 +1,9 @@
-import { CASES } from "../data/cases";
 import CaseCard from "./CaseCard";
 
-export default function CaseGrid() {
+export default function CaseGrid({ cases }) {
   return (
     <div className="case-grid">
-      {CASES.map((c) => (
+      {cases.map((c) => (
         <CaseCard key={c.id} caseData={c} />
       ))}
     </div>

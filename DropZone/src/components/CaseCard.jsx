@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 
 export default function CaseCard({ caseData }) {
+  const isFree = caseData.price === 0;
+
   return (
     <Link
       to={`/case/${caseData.id}`}
@@ -9,8 +11,8 @@ export default function CaseCard({ caseData }) {
     >
       <div className="case-card-emoji">{caseData.emoji}</div>
       <h3>{caseData.name}</h3>
-      <p className="case-price" style={{ color: caseData.color }}>
-        ${caseData.price.toFixed(2)}
+      <p className={`case-price ${isFree ? "free" : ""}`} style={{ color: isFree ? "#93ff1f" : caseData.color }}>
+        {isFree ? "FREE" : `$${caseData.price.toFixed(2)}`}
       </p>
       <span className="case-open-btn">Open Case</span>
     </Link>
