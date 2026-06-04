@@ -22,20 +22,22 @@ export default function CaseDetail() {
   }
 
   const items = getCaseItems(caseData);
+  const isFree = caseData.price === 0;
 
   return (
     <div className="app">
       <Navbar />
       <div className="container case-detail">
+        <Link to="/" className="back-link">← Back to Cases</Link>
+
         <div className="case-detail-header">
-          <Link to="/" className="back-link">← Back</Link>
-          <div className="case-detail-title">
+          <div className="case-detail-image">
             <span className="case-detail-emoji">{caseData.emoji}</span>
-            <h1>{caseData.name}</h1>
-            <p className="case-detail-price">
-              ${caseData.price.toFixed(2)}
-            </p>
           </div>
+          <h1>{caseData.name}</h1>
+          <p className="case-detail-price" style={{ color: caseData.color }}>
+            {isFree ? "FREE" : `$${caseData.price.toFixed(2)}`}
+          </p>
         </div>
 
         <Roulette items={items} />

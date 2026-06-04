@@ -7,14 +7,17 @@ export default function CaseCard({ caseData }) {
     <Link
       to={`/case/${caseData.id}`}
       className="case-card"
-      style={{ borderColor: `${caseData.color}33` }}
+      style={{ "--card-color": caseData.color, borderColor: `${caseData.color}22` }}
     >
-      <div className="case-card-emoji">{caseData.emoji}</div>
-      <h3>{caseData.name}</h3>
-      <p className={`case-price ${isFree ? "free" : ""}`} style={{ color: isFree ? "#93ff1f" : caseData.color }}>
-        {isFree ? "FREE" : `$${caseData.price.toFixed(2)}`}
-      </p>
-      <span className="case-open-btn">Open Case</span>
+      <div className="case-card-image">
+        <span className="case-card-emoji">{caseData.emoji}</span>
+      </div>
+      <div className="case-card-info">
+        <h3>{caseData.name}</h3>
+        <p className={`case-price ${isFree ? "free" : ""}`}>
+          {isFree ? "FREE" : `$${caseData.price.toFixed(2)}`}
+        </p>
+      </div>
     </Link>
   );
 }
