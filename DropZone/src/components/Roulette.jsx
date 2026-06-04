@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { RARITY, rollItem } from "../data/cases";
 
-const ITEM_WIDTH = 120;
+const ITEM_WIDTH = 140;
 const VISIBLE_ITEMS = 5;
 const TRACK_LENGTH = 60;
 
@@ -16,6 +16,7 @@ function generateTrack(items) {
 export default function Roulette({ items, onResult }) {
   const [spinning, setSpinning] = useState(false);
   const [wonItem, setWonItem] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const [trackItems, setTrackItems] = useState(() => generateTrack(items));
   const [offset, setOffset] = useState(0);
   const trackRef = useRef(null);
@@ -26,6 +27,7 @@ export default function Roulette({ items, onResult }) {
 
     const winner = rollItem(items);
     setWonItem(null);
+    setShowModal(false);
 
     const shuffled = [];
     for (let i = 0; i < TRACK_LENGTH; i++) {
@@ -57,6 +59,7 @@ export default function Roulette({ items, onResult }) {
       } else {
         setSpinning(false);
         setWonItem(winner);
+        setTimeout(() => setShowModal(true), 600);
         if (onResult) onResult(winner);
       }
     }
@@ -94,7 +97,7 @@ export default function Roulette({ items, onResult }) {
         </div>
       </div>
 
-      {wonItem && (
+      {wonItem && !showModal && (
         <div className="roulette-result" style={{ borderColor: RARITY[wonItem.rarity].color }}>
           <span className="result-emoji">{wonItem.emoji}</span>
           <span className="result-name">{wonItem.name}</span>
@@ -105,12 +108,44 @@ export default function Roulette({ items, onResult }) {
         </div>
       )}
 
+      {showModal && wonItem && (
+        <div className="modal-overlay" onClick={() => setShowModal(false)}>
+          <div
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}
+            style={{ borderColor: RARITY[wonItem.rarity].color }}
+          >
+            <button className="modal-close" onClick={() => setShowModal(false)}>✕</button>
+            <div
+              className="modal-glow"
+              style={{
+                background: `radial-gradient(circle, ${RARITY[wonItem.rarity].color}22 0%, transparent 70%)`,
+              }}
+            />
+            <span className="modal-emoji">{wonItem.emoji}</span>
+            <h2 className="modal-item-name">{wonItem.name}</h2>
+            <span className="modal-rarity" style={{ color: RARITY[wonItem.rarity].color }}>
+              {RARITY[wonItem.rarity].label}
+            </span>
+            <span className="modal-price">${wonItem.price.toFixed(2)}</span>
+            <div className="modal-actions">
+              <button className="modal-btn modal-btn-sell" onClick={() => setShowModal(false)}>
+                Sell ${wonItem.price.toFixed(2)}
+              </button>
+              <button className="modal-btn modal-btn-keep" onClick={() => setShowModal(false)}>
+                Keep Item
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <button
         className={`spin-btn ${spinning ? "spinning" : ""}`}
         onClick={spin}
         disabled={spinning}
       >
-        {spinning ? "Spinning..." : "SPIN"}
+        {spinning ? "Spinning..." : "OPEN CASE"}
       </button>
     </div>
   );

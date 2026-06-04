@@ -104,15 +104,64 @@ button {
   box-shadow: 0 0 8px rgba(19,205,255,0.6);
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.balance {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #0f1223;
+  border: 1px solid #1e2339;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.balance-icon {
+  color: #93ff1f;
+  font-size: 16px;
+}
+
+.balance-value {
+  color: #fff;
+}
+
+.balance-add {
+  background: #13cdff;
+  color: #070a18;
+  font-weight: 800;
+  font-size: 14px;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s ease;
+}
+
+.balance-add:hover {
+  background: #65deff;
+  box-shadow: 0 0 8px rgba(19,205,255,0.4);
+}
+
 .login-btn {
   background: linear-gradient(135deg, #0a1728, #0b1a2d);
   color: #13cdff;
   font-weight: 700;
-  padding: 10px 24px;
+  padding: 8px 20px;
   border-radius: 6px;
   font-size: 14px;
   border: 1px solid #108bb1;
   transition: all 0.12s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   text-shadow: 0 0 4px rgba(19,205,255,0.3);
 }
 
@@ -120,6 +169,256 @@ button {
   border-color: #13cdff;
   box-shadow: 0 0 12px rgba(19,205,255,0.3);
   text-shadow: 0 0 8px rgba(19,205,255,0.5);
+}
+
+.login-avatar {
+  font-size: 18px;
+}
+
+.live-drops {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #070a18;
+  border-bottom: 1px solid #1e2339;
+  height: 56px;
+  padding: 0 30px;
+  overflow: hidden;
+}
+
+.live-drops-hidden {
+  justify-content: center;
+  height: 32px;
+}
+
+.live-drops-show {
+  background: none;
+  color: #767b9f;
+  font-size: 12px;
+  font-weight: 600;
+  transition: color 0.12s ease;
+}
+
+.live-drops-show:hover {
+  color: #13cdff;
+}
+
+.live-drops-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #13cdff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 0 6px rgba(19,205,255,0.3);
+}
+
+.live-drops-hide {
+  background: none;
+  color: #767b9f;
+  font-size: 10px;
+  transition: color 0.12s ease;
+}
+
+.live-drops-hide:hover {
+  color: #13cdff;
+}
+
+.live-drops-track {
+  flex: 1;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.live-drops-scroll {
+  display: flex;
+  gap: 8px;
+  animation: ticker 30s linear infinite;
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.live-drop-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(30,35,57,0.5);
+  border: 1px solid #1e2339;
+  border-bottom: 2px solid;
+  border-radius: 6px;
+  white-space: nowrap;
+  min-width: 200px;
+  transition: background 0.12s ease;
+}
+
+.live-drop-item:hover {
+  background: rgba(30,35,57,0.9);
+}
+
+.live-drop-emoji {
+  font-size: 1.3rem;
+}
+
+.live-drop-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.live-drop-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.live-drop-user {
+  font-size: 10px;
+  color: #767b9f;
+}
+
+.live-drop-price {
+  font-size: 12px;
+  font-weight: 700;
+  color: #93ff1f;
+  margin-left: auto;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(7,10,24,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  position: relative;
+  background: #0f1223;
+  border: 2px solid;
+  border-radius: 16px;
+  padding: 40px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-width: 340px;
+  animation: modalPop 0.35s ease;
+  overflow: hidden;
+}
+
+@keyframes modalPop {
+  0% { transform: scale(0.6); opacity: 0; }
+  60% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.modal-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  color: #767b9f;
+  font-size: 18px;
+  z-index: 1;
+  transition: color 0.12s ease;
+}
+
+.modal-close:hover {
+  color: #fff;
+}
+
+.modal-emoji {
+  font-size: 4rem;
+  z-index: 1;
+  position: relative;
+}
+
+.modal-item-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+.modal-rarity {
+  font-size: 0.85rem;
+  font-weight: 700;
+  z-index: 1;
+  position: relative;
+}
+
+.modal-price {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #93ff1f;
+  z-index: 1;
+  position: relative;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  z-index: 1;
+  position: relative;
+}
+
+.modal-btn {
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.12s ease;
+}
+
+.modal-btn-sell {
+  background: rgba(147,255,31,0.1);
+  color: #93ff1f;
+  border: 1px solid rgba(147,255,31,0.3);
+}
+
+.modal-btn-sell:hover {
+  background: rgba(147,255,31,0.2);
+  border-color: #93ff1f;
+  box-shadow: 0 0 12px rgba(147,255,31,0.2);
+}
+
+.modal-btn-keep {
+  background: rgba(19,205,255,0.1);
+  color: #13cdff;
+  border: 1px solid rgba(19,205,255,0.3);
+}
+
+.modal-btn-keep:hover {
+  background: rgba(19,205,255,0.2);
+  border-color: #13cdff;
+  box-shadow: 0 0 12px rgba(19,205,255,0.2);
 }
 
 .hero {
