@@ -1,16 +1,20 @@
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
   return (
     <header className="header">
-      <div>DropZone</div>
+      <Link to="/" className="logo">
+        Drop<span className="logo-accent">Zone</span>
+      </Link>
 
       <nav className="nav">
-        <a href="#">Cases</a>
-        <a href="#">Telegram</a>
-        <a href="#">Discord</a>
-        <a href="#">FAQ</a>
+        <Link to="/">Cases</Link>
+        <a href="https://t.me/" target="_blank" rel="noreferrer">Telegram</a>
+        <a href="https://discord.gg/" target="_blank" rel="noreferrer">Discord</a>
+        <Link to="/" className="nav-faq">FAQ</Link>
       </nav>
 
-      <button>Login</button>
+      <button className="login-btn">Login</button>
     </header>
   );
 }
