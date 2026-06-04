@@ -57,6 +57,10 @@ export const CASES = [
   { id: "free-8", name: "Bonus Case", price: 0, color: "#4dd636", emoji: "⭐", category: "free", items: [2, 3, 5, 7, 24, 26, 28, 30] },
   { id: "free-9", name: "Try Your Luck", price: 0, color: "#57e03c", emoji: "🎲", category: "free", items: [1, 4, 6, 8, 9, 25, 27, 29] },
   { id: "free-10", name: "First Spin Case", price: 0, color: "#6fef50", emoji: "🎰", category: "free", items: [1, 2, 3, 5, 6, 24, 28, 30] },
+  { id: "free-11", name: "Silver Case", price: 0, color: "#c0c0c0", emoji: "🥈", category: "free", items: [2, 3, 5, 6, 8, 25, 27, 29] },
+  { id: "free-12", name: "Starter Pack", price: 0, color: "#4cc9f0", emoji: "🎒", category: "free", items: [1, 4, 6, 7, 24, 26, 28, 30] },
+  { id: "free-13", name: "Free Spin Case", price: 0, color: "#72efdd", emoji: "🌀", category: "free", items: [3, 4, 5, 8, 9, 25, 27, 29] },
+  { id: "free-14", name: "Gift Case", price: 0, color: "#f72585", emoji: "🎀", category: "free", items: [1, 2, 6, 7, 24, 26, 28, 30] },
 
   // REGULAR CASES
   { id: "reg-1", name: "Weapon Case", price: 1.49, color: "#4b79ff", emoji: "📦", category: "regular", items: [1, 2, 3, 4, 7, 8, 11, 12] },
@@ -69,6 +73,10 @@ export const CASES = [
   { id: "reg-8", name: "Streetwear Case", price: 2.49, color: "#0ea5e9", emoji: "🏙️", category: "regular", items: [2, 4, 8, 10, 24, 26, 12, 22] },
   { id: "reg-9", name: "Neon Case", price: 3.99, color: "#8b5cf6", emoji: "💜", category: "regular", items: [7, 9, 24, 25, 11, 13, 22, 16] },
   { id: "reg-10", name: "Assault Case", price: 2.99, color: "#6366f1", emoji: "⚔️", category: "regular", items: [1, 3, 7, 9, 11, 21, 14, 23] },
+  { id: "reg-11", name: "Desert Case", price: 1.99, color: "#d4a574", emoji: "🏜️", category: "regular", items: [2, 5, 6, 8, 24, 27, 29, 14] },
+  { id: "reg-12", name: "Arctic Case", price: 3.49, color: "#a5f3fc", emoji: "❄️", category: "regular", items: [3, 7, 10, 25, 12, 22, 28, 13] },
+  { id: "reg-13", name: "Jungle Case", price: 2.49, color: "#22c55e", emoji: "🌿", category: "regular", items: [4, 5, 8, 26, 11, 23, 27, 30] },
+  { id: "reg-14", name: "Urban Case", price: 2.99, color: "#94a3b8", emoji: "🌆", category: "regular", items: [1, 6, 9, 24, 12, 14, 28, 29] },
 
   // PREMIUM CASES
   { id: "prem-1", name: "Premium Case", price: 4.99, color: "#8f00ff", emoji: "💎", category: "premium", items: [5, 6, 9, 10, 11, 12, 13, 14, 16] },
@@ -81,6 +89,10 @@ export const CASES = [
   { id: "prem-8", name: "Gold Rush Case", price: 9.49, color: "#eab308", emoji: "💰", category: "premium", items: [11, 12, 13, 15, 16, 17, 19, 20] },
   { id: "prem-9", name: "Crimson Case", price: 6.49, color: "#dc2626", emoji: "❤️‍🔥", category: "premium", items: [8, 10, 14, 15, 17, 20, 22, 23] },
   { id: "prem-10", name: "Vice Case", price: 7.99, color: "#c026d3", emoji: "🌴", category: "premium", items: [9, 11, 13, 15, 18, 19, 21, 22] },
+  { id: "prem-11", name: "Sapphire Case", price: 8.49, color: "#0ea5e9", emoji: "💠", category: "premium", items: [10, 12, 14, 15, 17, 18, 22, 23] },
+  { id: "prem-12", name: "Ruby Case", price: 7.99, color: "#dc2626", emoji: "❤️", category: "premium", items: [9, 11, 13, 16, 17, 19, 21, 23] },
+  { id: "prem-13", name: "Emerald Case", price: 6.99, color: "#10b981", emoji: "💚", category: "premium", items: [7, 8, 14, 15, 16, 18, 22, 24] },
+  { id: "prem-14", name: "Diamond Case", price: 12.99, color: "#67e8f9", emoji: "🔷", category: "premium", items: [15, 16, 17, 18, 19, 20, 21, 22] },
 
   // SPECIAL CASES
   { id: "spec-1", name: "Knife Case", price: 14.99, color: "#ff12ae", emoji: "🗡️", category: "special", items: [11, 12, 14, 17, 18, 19, 20, 15] },
@@ -93,6 +105,10 @@ export const CASES = [
   { id: "spec-8", name: "Souvenir Case", price: 12.99, color: "#10b981", emoji: "🏆", category: "special", items: [11, 12, 13, 14, 15, 18, 21, 23] },
   { id: "spec-9", name: "Sticker Case", price: 8.99, color: "#f472b6", emoji: "🏷️", category: "special", items: [7, 9, 11, 13, 14, 15, 22, 17] },
   { id: "spec-10", name: "Contraband Case", price: 99.99, color: "#ffc700", emoji: "☠️", category: "special", items: [15, 16, 17, 18, 19, 20, 21, 22] },
+  { id: "spec-11", name: "Talon Case", price: 22.99, color: "#e11d48", emoji: "🦅", category: "special", items: [12, 14, 17, 19, 20, 15, 18, 16] },
+  { id: "spec-12", name: "Skeleton Case", price: 39.99, color: "#e2e8f0", emoji: "💀", category: "special", items: [15, 16, 17, 18, 19, 20, 23, 22] },
+  { id: "spec-13", name: "Alpha Case", price: 54.99, color: "#7c3aed", emoji: "🅰️", category: "special", items: [15, 17, 18, 19, 20, 21, 22, 16] },
+  { id: "spec-14", name: "Omega Case", price: 74.99, color: "#fbbf24", emoji: "Ω", category: "special", items: [16, 17, 18, 19, 20, 21, 22, 15] },
 ];
 
 export function getItemById(id) {

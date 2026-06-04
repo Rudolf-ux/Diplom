@@ -464,9 +464,8 @@ button {
   margin-bottom: 16px;
   padding-bottom: 8px;
   border-bottom: 2px solid;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  text-align: center;
+  justify-content: center;
 }
 
 .section-title::before {
