@@ -451,46 +451,30 @@ button {
   padding-bottom: 60px;
 }
 
-.cases h2 {
-  font-size: 22px;
-  font-weight: 700;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+.cases-section {
+  margin-bottom: 48px;
+  padding-bottom: 16px;
 }
 
-.category-tabs {
+.section-title {
+  font-size: 24px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid;
   display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
 }
 
-.category-tab {
-  padding: 10px 24px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #767b9f;
-  background: #0f1223;
-  border: 2px solid transparent;
-  border-radius: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: all 0.12s ease;
-  cursor: pointer;
-}
-
-.category-tab:hover {
-  color: var(--tab-color);
-  background: rgba(15,18,35,0.8);
-}
-
-.category-tab.active {
-  color: var(--tab-color);
-  border-color: var(--tab-color);
-  background: rgba(15,18,35,0.5);
-  text-shadow: 0 0 8px color-mix(in srgb, var(--tab-color) 50%, transparent);
-  box-shadow: 0 0 12px color-mix(in srgb, var(--tab-color) 15%, transparent);
+.section-title::before {
+  content: '';
+  width: 4px;
+  height: 28px;
+  background: currentColor;
+  border-radius: 2px;
 }
 
 .case-grid {

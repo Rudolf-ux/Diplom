@@ -88,6 +88,11 @@ export const CASES = [
   { id: "spec-3", name: "Butterfly Dream", price: 24.99, color: "#fbbf24", emoji: "🦋", category: "special", items: [12, 15, 17, 19, 20, 16, 18, 14] },
   { id: "spec-4", name: "M9 Case", price: 29.99, color: "#f43f5e", emoji: "🔪", category: "special", items: [15, 16, 17, 19, 20, 18, 21, 13] },
   { id: "spec-5", name: "Insane Case", price: 49.99, color: "#ef4444", emoji: "🤯", category: "special", items: [15, 16, 17, 18, 19, 20, 21, 22] },
+  { id: "spec-6", name: "Bayonet Case", price: 17.99, color: "#a855f7", emoji: "⚔️", category: "special", items: [11, 14, 17, 19, 20, 15, 23, 16] },
+  { id: "spec-7", name: "Glove Case", price: 34.99, color: "#f59e0b", emoji: "🧤", category: "special", items: [15, 16, 17, 18, 19, 20, 22, 13] },
+  { id: "spec-8", name: "Souvenir Case", price: 12.99, color: "#10b981", emoji: "🏆", category: "special", items: [11, 12, 13, 14, 15, 18, 21, 23] },
+  { id: "spec-9", name: "Sticker Case", price: 8.99, color: "#f472b6", emoji: "🏷️", category: "special", items: [7, 9, 11, 13, 14, 15, 22, 17] },
+  { id: "spec-10", name: "Contraband Case", price: 99.99, color: "#ffc700", emoji: "☠️", category: "special", items: [15, 16, 17, 18, 19, 20, 21, 22] },
 ];
 
 export function getItemById(id) {
