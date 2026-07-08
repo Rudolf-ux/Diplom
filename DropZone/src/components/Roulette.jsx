@@ -1,5 +1,8 @@
 import { useState, useRef, useEffect } from "react";
-import { RARITY, rollItem } from "../data/cases";
+import { useNavigate } from "react-router-dom";
+import { RARITY } from "../data/cases";
+import { api } from "../api/client";
+import { useAuth } from "../context/AuthContext";
 
 const ITEM_WIDTH = 140;
 const VISIBLE_ITEMS = 5;
@@ -13,22 +16,45 @@ function generateTrack(items) {
   return result;
 }
 
-export default function Roulette({ items, onResult }) {
+export default function Roulette({ items, caseId }) {
   const [spinning, setSpinning] = useState(false);
   const [wonItem, setWonItem] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [trackItems, setTrackItems] = useState(() => generateTrack(items));
   const [offset, setOffset] = useState(0);
-  const trackRef = useRef(null);
+  const [error, setError] = useState("");
+  const [inventoryId, setInventoryId] = useState(null);
   const animRef = useRef(null);
 
-  function spin() {
-    if (spinning) return;
+  const { isAuthenticated, setBalance } = useAuth();
+  const navigate = useNavigate();
 
-    const winner = rollItem(items);
+  async function spin() {
+    if (spinning) return;
+    setError("");
+
+    // Открытие требует авторизации.
+    if (!isAuthenticated) {
+      navigate("/login");
+      return;
+    }
+
+    let result;
+    try {
+      // РЕЗУЛЬТАТ РЕШАЕТ СЕРВЕР.
+      result = await api.post(`/cases/${caseId}/open`);
+    } catch (err) {
+      setError(err.message);
+      return;
+    }
+
+    const winner = result.item;
+    setBalance(result.balance);
+    setInventoryId(result.inventoryId);
     setWonItem(null);
     setShowModal(false);
 
+    // Строим ленту и вставляем победителя, пришедшего с сервера, в предпоследнюю позицию.
     const shuffled = [];
     for (let i = 0; i < TRACK_LENGTH; i++) {
       shuffled.push(items[Math.floor(Math.random() * items.length)]);
@@ -60,11 +86,22 @@ export default function Roulette({ items, onResult }) {
         setSpinning(false);
         setWonItem(winner);
         setTimeout(() => setShowModal(true), 600);
-        if (onResult) onResult(winner);
       }
     }
 
     animRef.current = requestAnimationFrame(animate);
+  }
+
+  async function sellWon() {
+    if (!inventoryId) { setShowModal(false); return; }
+    try {
+      const res = await api.post(`/inventory/${inventoryId}/sell`);
+      setBalance(res.balance);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setShowModal(false);
+    }
   }
 
   useEffect(() => {
@@ -79,7 +116,6 @@ export default function Roulette({ items, onResult }) {
         <div className="roulette-pointer" />
         <div className="roulette-viewport">
           <div
-            ref={trackRef}
             className="roulette-track"
             style={{ transform: `translateX(${offset}px)` }}
           >
@@ -96,6 +132,8 @@ export default function Roulette({ items, onResult }) {
           </div>
         </div>
       </div>
+
+      {error && <div className="roulette-error">{error}</div>}
 
       {wonItem && !showModal && (
         <div className="roulette-result" style={{ borderColor: RARITY[wonItem.rarity].color }}>
@@ -129,11 +167,11 @@ export default function Roulette({ items, onResult }) {
             </span>
             <span className="modal-price">${wonItem.price.toFixed(2)}</span>
             <div className="modal-actions">
-              <button className="modal-btn modal-btn-sell" onClick={() => setShowModal(false)}>
-                Sell ${wonItem.price.toFixed(2)}
+              <button className="modal-btn modal-btn-sell" onClick={sellWon}>
+                Продать ${wonItem.price.toFixed(2)}
               </button>
               <button className="modal-btn modal-btn-keep" onClick={() => setShowModal(false)}>
-                Keep Item
+                Оставить
               </button>
             </div>
           </div>
